@@ -1,0 +1,17 @@
+.nav-links a{
+  text-decoration: none;
+  color: White;
+  font-weight: bold;
+  margin-right: 18px;
+  font-size: 17px;
+}
+.bg-clr{
+  background-color: #021B29;
+}
+.signup-btn a{
+  background:#F2A70C;
+  padding: 0;
+  color: #021B29;
+  padding: 5px 12px;
+  border-radius: 15px;
+}
