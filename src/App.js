@@ -7,6 +7,8 @@ import Login from "./components/Shared/Login/Login";
 import Signup from "./components/Shared/Signup/Signup";
 import Blog from "./components/Blog/Blog";
 import Home from "./components/Home/Home";
+import NotFound from "./components/Shared/NotFound/NotFound";
+import Footer from "./components/Shared/Footer/Footer";
 
 function App() {
   return (
@@ -18,7 +20,9 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
         <Route path="blog" element={<Blog />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

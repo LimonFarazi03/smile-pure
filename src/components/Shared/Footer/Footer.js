@@ -1,9 +1,15 @@
-import React from 'react';
+import React from "react";
+import "./Footer.css";
 
 const Footer = () => {
+  let currentYear= new Date().getFullYear(); 
   return (
-    <div>
-      <h1>This is Footer</h1>
+    <div className='back-color mt-5'>
+      <div className="mb-0">
+        <p className="text-center text-white p-5">
+          Copyright © {currentYear}. All rights reserved by PureSmile
+        </p>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,14 @@
+.btn-more-join {
+  background: #52cbcb;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 10px 25px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.3s;
+  width: 150px;
+}
+.btn-more-join:hover{
+  background: #012345;
+}

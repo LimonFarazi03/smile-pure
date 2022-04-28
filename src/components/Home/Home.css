@@ -1,4 +1,30 @@
-.h1-clr h3{
+.h1-clr h1{
   color: #002345;
-  font-family: Heebo;
+}
+.checklist li{
+  list-style: none;
+  color: #002345;
+}
+.btn-more{
+  background: #002345;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 8px 15px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: .3s;
+}
+.btn-more:hover{
+  background: #04376a;
+}
+.btn-more-sec{
+  font-size: 13px;
+  font-weight: bold;
+  padding: 8px 15px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.back-clr{
+  background: #F0F2F5;
 }

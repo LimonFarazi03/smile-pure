@@ -1,0 +1,14 @@
+.back-clr{
+  background: #F0F2F5;
+}
+.btn-more{
+  background: #002345;
+  color: white;
+  font-size: 13px;
+  width:160px;
+  font-weight: bold;
+  padding: 8px 15px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: .3s;
+}
