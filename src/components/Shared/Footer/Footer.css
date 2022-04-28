@@ -1,4 +1,8 @@
-.back-color{
-  background:#002345;
-  margin-bottom: 0px;
+#animation {
+  background: #080a3c;
+  height: 100px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
