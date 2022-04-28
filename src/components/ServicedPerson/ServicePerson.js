@@ -17,8 +17,8 @@ const ServicePerson = () => {
           </p>
         </div>
         <div className='mb-3'>
-          <div className="row mb-5">
-            <div className="col-sm-4">
+          <div className="row">
+            <div className="col-sm-4 mb-5">
               <div className="card">
               <img width={'100%'} src={image1} class="card-img-top" alt="..."></img>
                 <div className="card-body">

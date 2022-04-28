@@ -9,7 +9,7 @@ const Home = () => {
       <div className='back-clr'>
       <div className="container position-relative">
       <div className='row d-flex justify-content-around align-items-center'>
-      <div className='col-12 col-md-6 '>
+      <div className='col-12 col-md-6'>
         <img width={'100%'} src={doctor} alt="" />
       </div>
       <div className='h1-clr col-12 col-md-6 h1-clr d-inline-block'>
