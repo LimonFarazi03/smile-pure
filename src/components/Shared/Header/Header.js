@@ -3,10 +3,11 @@ import "./Header.css";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../../../images/small-picture/logo.png";
 import { Link } from "react-router-dom";
+import CustomLink from "../CustomLink/CustomLink";
 
 const Header = () => {
   return (
-    <div className="bg-clr">
+    <div className="bg-white bg-shadow sticky-top">
       <Navbar expand="lg">
         <Container>
           <Navbar.Brand>
@@ -17,11 +18,11 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto nav-links">
-              <Link to="/blog">Blog</Link>
-              <Link to="/about">About</Link>
-              <Link to="/login">Login</Link>
+              <CustomLink to="/blog">Blog</CustomLink>
+              <CustomLink to="/about">About</CustomLink>
+              <CustomLink to="/login">Login</CustomLink>
               <div className="signup-btn">
-                <Link to="/signup">Signup</Link>
+                <CustomLink to="/signup">Signup</CustomLink>
               </div>
             </Nav>
           </Navbar.Collapse>

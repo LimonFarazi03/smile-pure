@@ -5,7 +5,7 @@ const Footer = () => {
   let currentYear = new Date().getFullYear();
   return (
     <div id="animation">
-      Copyright © {currentYear}. All rights reserved by PureSmile
+      Copyright © {currentYear}. All rights reserved by SmilePure
     </div>
   );
 };

@@ -16,8 +16,8 @@ const ServicePerson = () => {
           Our clinic offers all kinds of services and constantly study new technology to add new custom services to the list
           </p>
         </div>
-        <div>
-          <div className="row">
+        <div className='mb-3'>
+          <div className="row mb-5">
             <div className="col-sm-4">
               <div className="card">
               <img width={'100%'} src={image1} class="card-img-top" alt="..."></img>
