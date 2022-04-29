@@ -4,7 +4,7 @@ import './MasterCart.css';
 
 const MasterCart = () => {
   return (
-    <div className="mt-5">
+    <div className="my-5">
       <div className="">
         <div className="container position-relative">
           <div className="row d-flex justify-content-around align-items-center">
