@@ -1,5 +1,27 @@
-@media screen and (max-width: 576px){
-  .nonImg{
+@media screen and (max-width: 576px) {
+  .nonImg {
     display: none;
   }
+}
+.loginForm {
+  text-align: center;
+  width: 470px;
+  border-radius: 16px;
+  height: 530px;
+  background-color: whitesmoke;
+}
+.deco a {
+  text-decoration: none;
+}
+.login_btn {
+  background: #27dec0;
+  padding: 7px;
+  width: 370px;
+  border-radius: 10px;
+  outline: none;
+  border: 0;
+}
+.logo-Img img {
+  margin-right: 10px;
+  cursor: pointer;
 }
