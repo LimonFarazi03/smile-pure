@@ -8,6 +8,12 @@ import facebookLogo from '../../../images/LoginRes/facebook-logo.png';
 import './Signup.css';
 
 const Signup = () => {
+  const handleSignUp = (event)=>{
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    const confirmPassword = event.target.confirmPassword.value;
+  }
   return (
     <div className="container my-5">
       <div className="row d-flex justify-content-between">
@@ -15,7 +21,7 @@ const Signup = () => {
           <img width={"105%"} src={loginBanner} alt="" />
         </div>
         <div className="col-12 col-md-6">
-          <form>
+          <form onSubmit={handleSignUp}>
             <div className="p-5 loginForm">
               <div>
                 <img src={userIcon} alt="" />
@@ -38,7 +44,7 @@ const Signup = () => {
                   className="mt-3 form-control"
                   type="password"
                   name="password"
-                  placeholder="Confirm password.."
+                  placeholder="confirmPassword.."
                 />
                 <div className="deco">
                   <p className="mt-1 fw-bold">

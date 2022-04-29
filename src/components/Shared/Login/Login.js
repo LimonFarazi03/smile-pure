@@ -25,6 +25,9 @@ const Login = () => {
   if (googleError) {
     errorEliment = <p className="text-danger">{googleError.message}</p>;
   }
+  const handleSubmit = (event) =>{
+    event.preventDefault();
+  }
   return (
     <div className="container my-5">
       <div className="row d-flex justify-content-between">
@@ -32,7 +35,7 @@ const Login = () => {
           <img width={"105%"} src={loginBanner} alt="" />
         </div>
         <div className="col-12 col-md-6">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="p-5 loginForm">
               <div>
                 <img src={userIcon} alt="" />
