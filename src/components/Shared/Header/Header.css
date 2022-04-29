@@ -1,18 +1,27 @@
-.nav-links a{
+.nav-links a {
   text-decoration: none;
-  color: #021B29;
+  color: #021b29;
   font-weight: bold;
   margin-right: 18px;
   font-size: 17px;
 }
 
-.signup-btn a{
-  background:#F2A70C;
+.signup-btn a {
+  background: #f2a70c;
   padding: 0;
-  color: #021B29;
+  color: #021b29;
   padding: 5px 12px;
   border-radius: 15px;
 }
-.bg-shadow{
+.bg-shadow {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.logout-btn {
+  background: #f2a70c;
+  margin: 0px;
+  color: #021b29;
+  font-weight: bold;
+  padding: 5px 12px;
+  border-radius: 15px;
+  cursor:pointer;
 }
