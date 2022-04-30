@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import loginBanner from "../../../images/LoginRes/loginBanner.jpg";
 import "./Login.css";
 import userIcon from "../../../images/LoginRes/user.png";
@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import googleLogo from "../../../images/LoginRes/google-logo.png";
 import githubLogo from "../../../images/LoginRes/github-logo.png";
 import facebookLogo from "../../../images/LoginRes/facebook-logo.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   useSignInWithGoogle,
   useSignInWithGithub,
@@ -15,18 +17,27 @@ import auth from "../../../firebase.init";
 
 const Login = () => {
   // signInWithGoogle
-  const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
-    // signInWithGithub
-  const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
+  // signInWithGithub
+  const [signInWithGithub, githubUser, githubLoading, githubError] =
+    useSignInWithGithub(auth);
   // Email And password
-  const [signInWithEmailAndPassword, user, loading, passwordError] = useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, user, loading, passwordError] =
+    useSignInWithEmailAndPassword(auth);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    signInWithEmailAndPassword(email,password);
-  }
+    signInWithEmailAndPassword(email, password);
+    
+  };
+  useEffect(()=>{
+    if(passwordError){
+      toast.warn(passwordError.message)
+    }
+  },[passwordError])
   return (
     <div className="container my-5">
       <div className="row d-flex justify-content-between">
@@ -66,7 +77,7 @@ const Login = () => {
                 </div>
               </div>
               <button className="login_btn btn btn-primary">Login</button>
-              {passwordError && <p className='text-danger mt-2'>{passwordError?.message}</p>}
+              <ToastContainer />
               <hr />
               <div className="d-flex logo-Img">
                 <img
