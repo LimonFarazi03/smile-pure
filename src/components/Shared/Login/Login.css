@@ -25,3 +25,7 @@
   margin-right: 10px;
   cursor: pointer;
 }
+.link-clr{
+  color:#04376a;
+  text-decoration: underline !important;
+}

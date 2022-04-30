@@ -9,17 +9,23 @@ import facebookLogo from "../../../images/LoginRes/facebook-logo.png";
 import {
   useSignInWithGoogle,
   useSignInWithGithub,
+  useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 
 const Login = () => {
+  // signInWithGoogle
   const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    // signInWithGithub
   const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
-  
-  const handleSubmit = (event) =>{
+  // Email And password
+  const [signInWithEmailAndPassword, user, loading, passwordError] = useSignInWithEmailAndPassword(auth);
+
+  const handleSubmit = (event) => {
     event.preventDefault();
-   const email = event.target.email.value;
-   const password = event.target.password.value;
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    signInWithEmailAndPassword(email,password);
   }
   return (
     <div className="container my-5">
@@ -52,12 +58,15 @@ const Login = () => {
                     New In PureSmile?
                     <span className="text-warning ms-3">
                       {" "}
-                      <Link to="/signup">Create an account</Link>{" "}
+                      <Link className="link-clr" to="/signup">
+                        Create an account
+                      </Link>{" "}
                     </span>
                   </p>
                 </div>
               </div>
               <button className="login_btn btn btn-primary">Login</button>
+              {passwordError && <p className='text-danger mt-2'>{passwordError?.message}</p>}
               <hr />
               <div className="d-flex logo-Img">
                 <img
