@@ -4,6 +4,7 @@ import image1 from "../../images/small-picture/image1.jpg";
 import image2 from "../../images/small-picture/image2.jpg";
 import image3 from "../../images/small-picture/image3.jpg";
 import MasterCart from "../MasterCart/MasterCart";
+import { Link } from "react-router-dom";
 
 const ServicePerson = () => {
   return (
@@ -33,7 +34,7 @@ const ServicePerson = () => {
                       Cosmetic dentistry mainly concerns improving the
                       appearance of your teeth, including whitening & …
                     </p>
-                    <div className="btn-more mx-auto">Checkout</div>
+                    <div className="btn-more mx-auto"><Link to='checkout'>Checkout</Link></div>
                   </div>
                 </div>
               </div>
@@ -51,7 +52,7 @@ const ServicePerson = () => {
                       Cosmetic dentistry mainly concerns improving the
                       appearance of your teeth, including whitening & …
                     </p>
-                    <div className="btn-more mx-auto">Checkout</div>
+                    <div className="btn-more mx-auto"><Link to='checkout'>Checkout</Link></div>
                   </div>
                 </div>
               </div>
@@ -69,7 +70,7 @@ const ServicePerson = () => {
                       Cosmetic dentistry mainly concerns improving the
                       appearance of your teeth, including whitening & …
                     </p>
-                    <div className="btn-more mx-auto">Checkout</div>
+                    <div className="btn-more mx-auto"><Link to='checkout'>Checkout</Link></div>
                   </div>
                 </div>
               </div>

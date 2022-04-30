@@ -28,9 +28,8 @@ const Header = () => {
             <Nav className="ms-auto nav-links">
               <CustomLink to="/blog">Blog</CustomLink>
               <CustomLink to="/about">About</CustomLink>
-              <CustomLink to="/login">Login</CustomLink>
               <div className="signup-btn">
-              {user? <p className="logout-btn" onClick={logout}>Logout</p>:<CustomLink to="/signup">Signup</CustomLink>}
+              {user? <p className="logout-btn" onClick={logout}>Logout</p>:<CustomLink to="/login">Login</CustomLink>}
               </div>
             </Nav>
           </Navbar.Collapse>

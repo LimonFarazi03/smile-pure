@@ -10,6 +10,8 @@ import Home from "./components/Home/Home";
 import NotFound from "./components/Shared/NotFound/NotFound";
 import Footer from "./components/Shared/Footer/Footer";
 import RequiredAuth from "./components/Shared/RequiredAuth/RequiredAuth";
+import Checkout from "./components/Checkout/Checkout";
+
 
 function App() {
   return (
@@ -17,14 +19,19 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<Signup />} />
-        <Route path="blog" element={
+        <Route path="/about" element={
           <RequiredAuth>
-            <Blog />
+            <About />
           </RequiredAuth>
         } />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/blog" element={<Blog/>} />
+        <Route path="/checkout" element={ 
+          <RequiredAuth>
+            <Checkout/>
+          </RequiredAuth>
+         }/>
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
