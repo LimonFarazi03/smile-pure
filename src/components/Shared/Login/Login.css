@@ -29,3 +29,10 @@
   color:#04376a;
   text-decoration: underline !important;
 }
+.forgot-btn{
+  background: #27DEC0;
+    padding: 8px 15px;
+    color: white;
+    cursor: pointer;
+    border-radius: 15px
+}

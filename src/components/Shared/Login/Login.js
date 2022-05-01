@@ -12,6 +12,7 @@ import {
   useSignInWithGoogle,
   useSignInWithGithub,
   useSignInWithEmailAndPassword,
+  useSendPasswordResetEmail,
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 
@@ -27,15 +28,15 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
     // show password
   const [showPass,setShowPass] = useState(false);
-
+  // reset email
+  const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
   const handleSubmit = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
     signInWithEmailAndPassword(email, password);
-    
   };
-
+  
   useEffect(()=>{
     if(passwordError){
       toast.warn(passwordError.message)
@@ -98,8 +99,9 @@ const Login = () => {
               <button className="login_btn btn btn-primary">Login</button>
               <ToastContainer />
               <hr />
-              <div className="d-flex logo-Img">
-                <img
+              <div className="d-flex logo-Img justify-content-between align-items-center">
+                <div>
+                  <img
                   onClick={() => signInWithGoogle()}
                   src={googleLogo}
                   alt=""
@@ -110,6 +112,10 @@ const Login = () => {
                   alt=""
                 />
                 <img src={facebookLogo} alt="" />
+                </div>
+                <div>
+                  <span className=' forgot-btn fw-bold'>Forgot Password</span>
+                </div>
               </div>
             </div>
           </form>
