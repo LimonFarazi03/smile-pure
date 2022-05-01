@@ -1,19 +1,76 @@
-import React from 'react';
-import userIcon from "../../../images/LoginRes/user.png";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
 import loginBanner from "../../../images/LoginRes/loginBanner.jpg";
-import googleLogo from '../../../images/LoginRes/google-logo.png';
-import githubLogo from '../../../images/LoginRes/github-logo.png';
-import facebookLogo from '../../../images/LoginRes/facebook-logo.png';
-import './Signup.css';
+import userIcon from "../../../images/LoginRes/user.png";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import "./Signup.css";
+import googleLogo from "../../../images/LoginRes/google-logo.png";
+import githubLogo from "../../../images/LoginRes/github-logo.png";
+import facebookLogo from "../../../images/LoginRes/facebook-logo.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import {
+  useSignInWithGoogle,
+  useSignInWithGithub,
+  useSignInWithEmailAndPassword,
+  useCreateUserWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
 
 const Signup = () => {
-  const handleSignUp = (event)=>{
+  // signInWithGoogle
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
+  // signInWithGithub
+  const [signInWithGithub, githubUser, githubLoading, githubError] =
+    useSignInWithGithub(auth);
+  // Create account
+  const [
+    createUserWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useCreateUserWithEmailAndPassword(auth);
+  if(error){
+    toast.warn(error?.message)
+  }
+  const handleSubmit = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
     const confirmPassword = event.target.confirmPassword.value;
-  }
+    if (password !== confirmPassword) {
+      toast("password don't same")
+    }
+    createUserWithEmailAndPassword(email, password);
+  };
+  useEffect(() => {
+    if (user) {
+      toast.warn(user.message);
+    }
+  }, [user]);
+
+  useEffect(()=>{
+    if(googleError){
+      toast.warn(googleError.message)
+    }
+  },[googleError]);
+
+  useEffect(()=>{
+    if(githubError){
+      toast.warn(githubError.message)
+    }
+  },[githubError]);
+
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
+  useEffect(()=>{
+    if(user){
+      navigate(from)
+    }
+  },[user]);
+  
   return (
     <div className="container my-5">
       <div className="row d-flex justify-content-between">
@@ -21,12 +78,12 @@ const Signup = () => {
           <img width={"105%"} src={loginBanner} alt="" />
         </div>
         <div className="col-12 col-md-6">
-          <form onSubmit={handleSignUp}>
+          <form onSubmit={handleSubmit}>
             <div className="p-5 loginForm">
               <div>
                 <img src={userIcon} alt="" />
               </div>
-              <h1 className="mt-2">Register Now</h1>
+              <h1 className="mt-2">Register now</h1>
               <div className="mt-3">
                 <input
                   className="mt-2 form-control"
@@ -43,24 +100,35 @@ const Signup = () => {
                 <input
                   className="mt-3 form-control"
                   type="password"
-                  name="password"
-                  placeholder="confirmPassword.."
+                  name="confirmPassword"
+                  placeholder="confirm password.."
                 />
                 <div className="deco">
                   <p className="mt-1 fw-bold">
-                    Already have and account?
+                    Already have an account
                     <span className="text-warning ms-3">
                       {" "}
-                      <Link to="/login">Login</Link>{" "}
+                      <Link className="link-clr" to="/login">
+                        Login
+                      </Link>{" "}
                     </span>
                   </p>
                 </div>
               </div>
-              <button className="login_btn btn btn-primary">Login</button>
-              <hr/>
+              <button className="login_btn btn btn-primary">Signin</button>
+              <ToastContainer />
+              <hr />
               <div className="d-flex logo-Img">
-                <img src={googleLogo} alt="" />
-                <img src={githubLogo} alt="" />
+                <img
+                  onClick={() => signInWithGoogle()}
+                  src={googleLogo}
+                  alt=""
+                />
+                <img
+                  onClick={() => signInWithGithub()}
+                  src={githubLogo}
+                  alt=""
+                />
                 <img src={facebookLogo} alt="" />
               </div>
             </div>

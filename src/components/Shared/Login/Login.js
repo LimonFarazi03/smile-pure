@@ -33,11 +33,25 @@ const Login = () => {
     signInWithEmailAndPassword(email, password);
     
   };
+  
   useEffect(()=>{
     if(passwordError){
       toast.warn(passwordError.message)
     }
-  },[passwordError])
+  },[passwordError]);
+
+  useEffect(()=>{
+    if(googleError){
+      toast.warn(googleError.message)
+    }
+  },[googleError]);
+  
+  useEffect(()=>{
+    if(githubError){
+      toast.warn(githubError.message)
+    }
+  },[githubError]);
+
   return (
     <div className="container my-5">
       <div className="row d-flex justify-content-between">
