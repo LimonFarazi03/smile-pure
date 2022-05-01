@@ -29,7 +29,7 @@ const Signup = () => {
     user,
     loading,
     error,
-  ] = useCreateUserWithEmailAndPassword(auth, {emailVerificationOptions:true});
+  ] = useCreateUserWithEmailAndPassword(auth, { emailVerificationOptions: true } );
   // show password
   const [showPass,setShowPass] = useState(false);
   if(error){
