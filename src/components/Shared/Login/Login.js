@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import loginBanner from "../../../images/LoginRes/loginBanner.jpg";
 import "./Login.css";
 import userIcon from "../../../images/LoginRes/user.png";
@@ -25,6 +25,8 @@ const Login = () => {
   // Email And password
   const [signInWithEmailAndPassword, user, loading, passwordError] =
     useSignInWithEmailAndPassword(auth);
+    // show password
+  const [showPass,setShowPass] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -33,7 +35,7 @@ const Login = () => {
     signInWithEmailAndPassword(email, password);
     
   };
-  
+
   useEffect(()=>{
     if(passwordError){
       toast.warn(passwordError.message)
@@ -72,12 +74,15 @@ const Login = () => {
                   name="email"
                   placeholder="user name/email.."
                 />
+                <div className='position-relative'>
                 <input
                   className="mt-3 form-control"
-                  type="password"
+                  type={showPass ? "text":"password"}
                   name="password"
                   placeholder="password.."
                 />
+                <p className='me-2 mt-2 position-absolute top-0 end-0 user-select-none' onClick={()=>setShowPass(!showPass)}>👁️</p>
+                </div>
                 <div className="deco">
                   <p className="mt-1 fw-bold">
                     New In PureSmile?

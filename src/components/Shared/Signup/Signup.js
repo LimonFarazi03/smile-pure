@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import loginBanner from "../../../images/LoginRes/loginBanner.jpg";
 import userIcon from "../../../images/LoginRes/user.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -29,7 +29,9 @@ const Signup = () => {
     user,
     loading,
     error,
-  ] = useCreateUserWithEmailAndPassword(auth);
+  ] = useCreateUserWithEmailAndPassword(auth, {emailVerificationOptions:true});
+  // show password
+  const [showPass,setShowPass] = useState(false);
   if(error){
     toast.warn(error?.message)
   }
@@ -91,15 +93,18 @@ const Signup = () => {
                   name="email"
                   placeholder="user name/email.."
                 />
+                <div className='position-relative'>
                 <input
                   className="mt-3 form-control"
-                  type="password"
+                  type={showPass ? "text":"password"}
                   name="password"
                   placeholder="password.."
                 />
+                <p className='me-2 mt-2 position-absolute top-0 end-0 user-select-none' onClick={()=>setShowPass(!showPass)}>👁️</p>
+                </div>
                 <input
                   className="mt-3 form-control"
-                  type="password"
+                  type={showPass ? "text":"password"}
                   name="confirmPassword"
                   placeholder="confirm password.."
                 />
